@@ -5,9 +5,7 @@ test2 = Node 0 (Node 3 (Node 5 (EndNode 8) (EndNode 9)) (Node 6 (EndNode 9) (End
 
 main :: IO ()
 main = do
+  putStr "Build complex tree:\t"
   putStrLn $ show (znip 1 [3,4] [[5,6,7],[8,9,10,11],[12,13,14,15,16]] == correct)
+  putStr "Build simple tree:\t"
   putStrLn $ show (znip 0 [3,4] [[5,6,7],[8,9,0,1]] == test2)
--- main = hspec $ do
---   describe "Prelude.head" $ do
---     it "returns the first element of a list" $ do
---       head [23 ..] `shouldBe` (23 :: Int)
