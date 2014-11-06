@@ -22,6 +22,13 @@ main = do
   describe "Path.mkTree" $ do
     it "should build a complex tree" $ do
       mkTree [[1],[3,4],[5,6,7],[8,9,10,11],[12,13,14,15,16]] == correct
-      
+
     it "should build a simple tree" $ do
       mkTree [[0],[3,4],[5,6,7],[8,9,0,1]] == test2
+
+  describe "Path.calcSum" $ do
+    it "should return the value of an EndNode" $ do
+      Path.calcSum (EndNode 1) == 1
+
+    it "should return the sum of the node" $ do
+      Path.calcSum (Node 1 (EndNode 1) EmptyNode) == 2

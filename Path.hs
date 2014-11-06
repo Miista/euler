@@ -11,7 +11,9 @@ module Path where
                 else tail $ tail list
     in znip root children rest
   
-  calcSum :: Node a -> Int
+  calcSum :: Node Int -> Int
+  calcSum (Node value c1 c2) = value + calcSum c1 + calcSum c2
+  calcSum (EndNode value) = value
   calcSum n = 0
-  
+
   p1 = mkTree [[0],[3,4],[5,6,7],[8,9,10,11]] --znip 0 [3,4] [[5,6,7],[8,9,0,1]]
