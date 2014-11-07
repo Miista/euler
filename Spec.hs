@@ -52,3 +52,11 @@ main = do
       -- [8,5,9,3]
       let path = Path.mkTree [[3],[7,4],[2,4,6],[8,5,9,3]]
       Path.findPath path == [3,7,4,9]
+
+  describe "Path.findMaxSum" $ do
+    it "should calculate the max sum" $ do
+      --   [1]
+      --  [1,2]
+      -- [2,2,1]
+      let path = Path.mkTree [[1],[1,2],[2,2,1]]
+      Path.findMaxSum path == 5
