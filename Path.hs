@@ -16,4 +16,14 @@ module Path where
   calcSum (EndNode value) = value
   calcSum n = 0
 
+  findMaxSum :: Node Int -> Int
+  findMaxSum (Node v c1 c2) = v + max (findMaxSum c1) (findMaxSum c2)
+  findMaxSum (EndNode v) = 0
+  findMaxSum (EmptyNode) = 0
+
+  findPath :: Node Int -> [Int]
+  findPath (Node v c1 c2) = v : max (findPath c1) (findPath c2)
+  findPath (EndNode v) = [v]
+  findPath (EmptyNode) = [0]
+
   p1 = mkTree [[0],[3,4],[5,6,7],[8,9,10,11]] --znip 0 [3,4] [[5,6,7],[8,9,0,1]]

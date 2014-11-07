@@ -32,3 +32,23 @@ main = do
 
     it "should return the sum of the node" $ do
       Path.calcSum (Node 1 (EndNode 1) EmptyNode) == 2
+
+  describe "Path.findPath" $ do
+    it "should return the highest-value path" $ do
+      let path = (Node 1 (EndNode 1) (EndNode 2))
+      Path.findPath path == [1,2]
+
+    it "should select the path with the highest value" $ do
+      --   [1]
+      --  [1,2]
+      -- [2,2,1]
+      let path = Path.mkTree [[1],[1,2],[2,2,1]]
+      Path.findPath path == [1,2,2]
+
+    it "should select the path with the highest value (project euler)" $ do
+      --    [3]
+      --   [7,4]
+      --  [2,4,6]
+      -- [8,5,9,3]
+      let path = Path.mkTree [[3],[7,4],[2,4,6],[8,5,9,3]]
+      Path.findPath path == [3,7,4,9]
